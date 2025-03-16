@@ -21,5 +21,29 @@ namespace CMSWinFormsApp
         {
 
         }
+
+        private void radioButton1_Check(object sender, EventArgs e)
+        {
+            MonthlyCunsumableForm monthlyCunsumableForm = new MonthlyCunsumableForm();
+            monthlyCunsumableForm.ShowDialog();
+        }
+
+        private void radioButton2_Click(object sender, EventArgs e)
+        {
+            MonthlyCustomerForm monthlyCustomerReportForm = new MonthlyCustomerForm();
+            monthlyCustomerReportForm.ShowDialog();
+        }
+
+        private void radioButton3_Click(object sender, EventArgs e)
+        {
+            WorkerAlignBalanceReport f = new WorkerAlignBalanceReport();
+            f.ShowDialog();
+        }
+
+        private void radioButton4_Click(object sender, EventArgs e)
+        {
+            WorkerReportForm f = new WorkerReportForm();
+            f.ShowDialog();
+        }
     }
 }

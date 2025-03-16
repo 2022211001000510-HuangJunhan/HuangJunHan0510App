@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblCarNo = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblMake = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCarNo = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtMake = new System.Windows.Forms.TextBox();
+            this.lblPosition = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.errCustForm = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnNew = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.errCustForm)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCarNo
@@ -83,90 +87,101 @@
             this.lblMake.Text = "Make";
             this.lblMake.Click += new System.EventHandler(this.lblMake_Click);
             // 
-            // textBox1
+            // txtCarNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(213, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 25);
-            this.textBox1.TabIndex = 4;
+            this.txtCarNo.Location = new System.Drawing.Point(213, 97);
+            this.txtCarNo.Name = "txtCarNo";
+            this.txtCarNo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtCarNo.Size = new System.Drawing.Size(129, 25);
+            this.txtCarNo.TabIndex = 4;
+            this.txtCarNo.Text = "\r\n";
+            this.txtCarNo.TextChanged += new System.EventHandler(this.textCarNo_TextChanged);
             // 
-            // textBox2
+            // txtAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(467, 100);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(127, 25);
-            this.textBox2.TabIndex = 5;
+            this.txtAddress.Location = new System.Drawing.Point(467, 100);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(127, 25);
+            this.txtAddress.TabIndex = 5;
             // 
-            // textBox3
+            // txtName
             // 
-            this.textBox3.Location = new System.Drawing.Point(213, 158);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(129, 25);
-            this.textBox3.TabIndex = 6;
+            this.txtName.Location = new System.Drawing.Point(213, 158);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(129, 25);
+            this.txtName.TabIndex = 6;
             // 
-            // textBox4
+            // txtMake
             // 
-            this.textBox4.Location = new System.Drawing.Point(467, 161);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(127, 25);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtMake.Location = new System.Drawing.Point(467, 161);
+            this.txtMake.Name = "txtMake";
+            this.txtMake.Size = new System.Drawing.Size(127, 25);
+            this.txtMake.TabIndex = 7;
+            this.txtMake.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox5
+            // lblPosition
             // 
-            this.textBox5.Location = new System.Drawing.Point(206, 302);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(343, 25);
-            this.textBox5.TabIndex = 8;
+            this.lblPosition.BackColor = System.Drawing.SystemColors.Menu;
+            this.lblPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lblPosition.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblPosition.Location = new System.Drawing.Point(351, 315);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(88, 18);
+            this.lblPosition.TabIndex = 8;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(156, 234);
+            this.btnSave.Location = new System.Drawing.Point(257, 234);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 32);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(267, 234);
+            this.btnEdit.Location = new System.Drawing.Point(354, 234);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 32);
             this.btnEdit.TabIndex = 10;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(378, 234);
+            this.btnCancel.Location = new System.Drawing.Point(448, 234);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 32);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(498, 234);
+            this.btnExit.Location = new System.Drawing.Point(551, 234);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 32);
             this.btnExit.TabIndex = 12;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(118, 301);
+            this.btnPrevious.Location = new System.Drawing.Point(213, 307);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(82, 26);
             this.btnPrevious.TabIndex = 13;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(555, 302);
+            this.btnNext.Location = new System.Drawing.Point(467, 308);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 25);
             this.btnNext.TabIndex = 14;
@@ -174,28 +189,45 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.button6_Click);
             // 
+            // errCustForm
+            // 
+            this.errCustForm.ContainerControl = this;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(160, 234);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 32);
+            this.btnNew.TabIndex = 15;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblPosition);
+            this.Controls.Add(this.txtMake);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.txtCarNo);
             this.Controls.Add(this.lblMake);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCarNo);
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
+            this.Load += new System.EventHandler(this.CustomerForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errCustForm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,16 +239,18 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblMake;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCarNo;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtMake;
+        private System.Windows.Forms.TextBox lblPosition;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.ErrorProvider errCustForm;
+        private System.Windows.Forms.Button btnNew;
     }
 }

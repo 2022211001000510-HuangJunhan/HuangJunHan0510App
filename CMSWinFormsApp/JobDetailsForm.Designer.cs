@@ -1,4 +1,6 @@
-﻿namespace CMSWinFormsApp
+﻿using System;
+
+namespace CMSWinFormsApp
 {
     partial class JobDetailsForm
     {
@@ -50,7 +52,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.txtCarNo = new System.Windows.Forms.TextBox();
-            this.txtJobDate = new System.Windows.Forms.TextBox();
             this.txtWorkerId = new System.Windows.Forms.TextBox();
             this.txtKMs = new System.Windows.Forms.TextBox();
             this.txtTuning = new System.Windows.Forms.TextBox();
@@ -74,7 +75,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textPosition = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -82,6 +83,7 @@
             this.btnCancelAll = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -169,11 +171,12 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(83, 305);
+            this.label10.Location = new System.Drawing.Point(67, 307);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(87, 15);
             this.label10.TabIndex = 9;
             this.label10.Text = "OilChanged";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
@@ -281,13 +284,7 @@
             this.txtCarNo.Name = "txtCarNo";
             this.txtCarNo.Size = new System.Drawing.Size(191, 25);
             this.txtCarNo.TabIndex = 22;
-            // 
-            // txtJobDate
-            // 
-            this.txtJobDate.Location = new System.Drawing.Point(160, 49);
-            this.txtJobDate.Name = "txtJobDate";
-            this.txtJobDate.Size = new System.Drawing.Size(191, 25);
-            this.txtJobDate.TabIndex = 23;
+            this.txtCarNo.Leave += new System.EventHandler(this.txtCarNo_Leave);
             // 
             // txtWorkerId
             // 
@@ -430,6 +427,7 @@
             this.button1.TabIndex = 44;
             this.button1.Text = "<<";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -439,6 +437,7 @@
             this.button2.TabIndex = 45;
             this.button2.Text = "<";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -448,6 +447,7 @@
             this.button3.TabIndex = 46;
             this.button3.Text = ">";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -457,13 +457,16 @@
             this.button4.TabIndex = 47;
             this.button4.Text = ">>";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox1
+            // textPosition
             // 
-            this.textBox1.Location = new System.Drawing.Point(371, 378);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 48;
+            this.textPosition.Location = new System.Drawing.Point(371, 378);
+            this.textPosition.Multiline = true;
+            this.textPosition.Name = "textPosition";
+            this.textPosition.Size = new System.Drawing.Size(100, 25);
+            this.textPosition.TabIndex = 48;
+            this.textPosition.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnLoad
             // 
@@ -473,6 +476,7 @@
             this.btnLoad.TabIndex = 49;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click_1);
             // 
             // btnAdd
             // 
@@ -482,6 +486,7 @@
             this.btnAdd.TabIndex = 50;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -491,6 +496,7 @@
             this.btnDelete.TabIndex = 51;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCancel
             // 
@@ -500,6 +506,7 @@
             this.btnCancel.TabIndex = 52;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnCancelAll
             // 
@@ -509,6 +516,7 @@
             this.btnCancelAll.TabIndex = 53;
             this.btnCancelAll.Text = "CancelAll";
             this.btnCancelAll.UseVisualStyleBackColor = true;
+            this.btnCancelAll.Click += new System.EventHandler(this.btnCancelAll_Click);
             // 
             // btnUpdate
             // 
@@ -518,6 +526,7 @@
             this.btnUpdate.TabIndex = 54;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnExit
             // 
@@ -527,12 +536,23 @@
             this.btnExit.TabIndex = 55;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(160, 48);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(191, 25);
+            this.dateTimePicker1.TabIndex = 56;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // JobDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCancelAll);
@@ -540,7 +560,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnLoad);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textPosition);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -564,7 +584,6 @@
             this.Controls.Add(this.txtTuning);
             this.Controls.Add(this.txtKMs);
             this.Controls.Add(this.txtWorkerId);
-            this.Controls.Add(this.txtJobDate);
             this.Controls.Add(this.txtCarNo);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
@@ -594,6 +613,11 @@
 
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private System.Windows.Forms.Label label1;
@@ -618,7 +642,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtCarNo;
-        private System.Windows.Forms.TextBox txtJobDate;
         private System.Windows.Forms.TextBox txtWorkerId;
         private System.Windows.Forms.TextBox txtKMs;
         private System.Windows.Forms.TextBox txtTuning;
@@ -642,7 +665,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textPosition;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
@@ -650,5 +673,6 @@
         private System.Windows.Forms.Button btnCancelAll;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

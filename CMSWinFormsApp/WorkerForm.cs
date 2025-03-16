@@ -19,7 +19,37 @@ namespace CMSWinFormsApp
 
         private void btnCancle_Click(object sender, EventArgs e)
         {
+            this.cMSDBDataSet.tblWorker.Clear();
+            sqlDataAdapter1.Fill(this.cMSDBDataSet.tblWorker);
+        }
 
+        private void WorkerForm_Load(object sender, EventArgs e)
+        {
+            // TODO: 这行代码将数据加载到表“cMSDBDataSet.tblWorker”中。您可以根据需要移动或移除它。
+            this.tblWorkerTableAdapter.Fill(this.cMSDBDataSet.tblWorker);
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            this.cMSDBDataSet.tblWorker.Clear();
+            sqlDataAdapter1.Fill(this.cMSDBDataSet.tblWorker);
+        }
+
+        private void sqlDataAdapter1_RowUpdated(object sender, System.Data.SqlClient.SqlRowUpdatedEventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            sqlDataAdapter1.Update(this.cMSDBDataSet.tblWorker);
+            MessageBox.Show("The Worker Table is updated.");
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
